@@ -11,21 +11,7 @@ import java.util.HashSet;
 4.要刪除的話 記得要記 previous 項 畫圖即知
  */
 public class NO_2_1 {
-    ListNode init (int[] nodes){
-        ListNode root = null;
-        ListNode cur = null;
-        for(int nodeValue: nodes){
-            if(root==null) {
-                root = new ListNode(nodeValue);
-                cur = root;
-            } else {
-                cur.next = new ListNode(nodeValue);
-                cur = cur.next;
-            }
 
-        }
-        return root;
-    }
     static void printList(ListNode head)
     {
         while (head != null)
@@ -69,10 +55,10 @@ public class NO_2_1 {
 
     public static void main(String[] args) {
         NO_2_1 no = new NO_2_1();
-        ListNode root = no.init(new int[]{1,2,3,3,2,1,4});
+        ListNode root = ListNode.init(new int[]{1,2,3,3,2,1,4});
         no.deleteDup1(root);
         printList(root);
-        
+
     }
 
 }
