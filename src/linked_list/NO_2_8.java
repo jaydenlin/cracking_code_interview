@@ -11,7 +11,7 @@ import util.ListNode;
  * 由於是環，所以此時 fast 距離 slow 為 mod(k, 環長度) = K ，因此再經過(環長度-K)步，就會發生碰撞
  * 此時碰撞點在環原點前 K 步
  * 4.此時把 slow 重新放回 head，slow 跟 fast 改以同速度前進，走了 k 步之後會剛好在環狀起點相遇
- * 因為 fast 走了 k 步，k = K + 圈數 * 環長度，等於繞了幾圈後走了 K 
+ * 因為 fast 走了 k 步，k = K + 圈數 * 環長度，等於繞了幾圈後走了 K
  */
 public class NO_2_8 {
     ListNode findCycleBegining(ListNode head){
