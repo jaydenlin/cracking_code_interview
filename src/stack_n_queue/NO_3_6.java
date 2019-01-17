@@ -6,7 +6,7 @@ import java.util.LinkedList;
  * 題目：動物收容所
  * 知識點：
  * 1.紀錄一個特別的值 order 來判斷兩個 Queue 要取那一個
- * 2.LinkedList 可以用來當 Queue 
+ * 2.LinkedList 可以用來當 Queue
  */
 public class NO_3_6 {
 }
