@@ -22,7 +22,7 @@ public class NO_4_2 {
         if(end < start) {
             return null;
         }
-        int mid = (start + end)/2;
+        int mid = (start + end)/2;// 除以二最後 mid 會取左邊
         TreeNode node = new TreeNode();
         node.value = array[mid];
         node.left = createMinimalBST(array, start, mid -1);
