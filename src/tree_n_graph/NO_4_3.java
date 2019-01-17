@@ -1,9 +1,12 @@
 package tree_n_graph;
 
+import util.Tree;
 import util.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+
+import static util.Tree.buildBinary;
 
 /**
  * 題目：對二元樹建立每個深度的鏈結清單
@@ -13,6 +16,9 @@ import java.util.LinkedList;
  * 3. 注意 level 跟 lists.size 的關係
  */
 public class NO_4_3 {
+    /**
+     * 遞迴解法
+     */
     void createLevelLinkedList(TreeNode node, ArrayList<LinkedList<TreeNode>> lists, int level){
         if(node == null) {
             return;
@@ -30,5 +36,41 @@ public class NO_4_3 {
 
         createLevelLinkedList(node.left, lists, level +1);
         createLevelLinkedList(node.right, lists, level +1);
+    }
+    ArrayList<LinkedList<TreeNode>> createLevelLinkedList(TreeNode node){
+        ArrayList<LinkedList<TreeNode>> lists = new ArrayList<>();
+        TreeNode root = buildBinary(new int[]{1,2,3,4,5,6,7,8}, 0);
+        createLevelLinkedList(root, lists, 0);
+        return lists;
+    }
+    /**
+     * 遍歷解法
+     */
+    ArrayList<LinkedList<TreeNode>> createLevelLinkedList2(TreeNode node){
+
+        ArrayList<LinkedList<TreeNode>> result =  new ArrayList<>();
+
+        //遍歷起手式：先放一個在 Queue
+        LinkedList<TreeNode> currentQueue = new LinkedList<>();
+        if(node != null) {
+            currentQueue.add(node);
+        }
+        while(!currentQueue.isEmpty()) {
+            result.add(currentQueue);//加入上一層
+            LinkedList<TreeNode> parentQueue = currentQueue;//將上一層層設定成 parent
+            currentQueue =  new LinkedList<>(); // 建立目前這一層要用的 Queue
+            //遍歷目前這一層的所有點
+            for(TreeNode parent: parentQueue) {
+                if(parent.left!=null){
+                    currentQueue.add(parent.left);
+                }
+                if(parent.right!=null){
+                    currentQueue.add(parent.right);
+                }
+            }
+
+        }
+
+        return result;
     }
 }
